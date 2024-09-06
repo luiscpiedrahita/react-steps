@@ -1,4 +1,6 @@
 import { useState } from "react";
+import StepMessage from "./components/StepMessage";
+import Button from "./components/Button";
 
 const messages = [
   "Learn React ⚛️",
@@ -27,8 +29,6 @@ function Steps() {
   const [step, setStep] = useState(1);
   const [isOpen, setIsOpen] = useState(true);
 
-  // const [test, setTest] = useState({ name: "Jonas" });
-
   function handlePrevious() {
     if (step > 1) setStep((s) => s - 1);
   }
@@ -36,12 +36,7 @@ function Steps() {
   function handleNext() {
     if (step < 3) {
       setStep((s) => s + 1);
-      // setStep((s) => s + 1);
     }
-
-    // BAD PRACTICE
-    // test.name = "Fred";
-    // setTest({ name: "Fred" });
   }
 
   return (
@@ -84,25 +79,5 @@ function Steps() {
         </div>
       )}
     </div>
-  );
-}
-
-function StepMessage({ step, children }) {
-  return (
-    <div className="message">
-      <h3>Step {step}</h3>
-      {children}
-    </div>
-  );
-}
-
-function Button({ textColor, bgColor, onClick, children }) {
-  return (
-    <button
-      style={{ backgroundColor: bgColor, color: textColor }}
-      onClick={onClick}
-    >
-      {children}
-    </button>
   );
 }
